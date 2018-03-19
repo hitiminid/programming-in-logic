@@ -1,11 +1,10 @@
-maximum([X], X).
-maximum([X | L], M) :-
-                      maximum(L, M1),
-                      porównaj(M1, X, M).
+max_sum(List, End) :-
+                            max_sum(List, 0, 0, End).
 
-porównaj(M, X, X) :-
-                      X > M.
-porównaj(M, X, M) :-
-                      X =< M.
+max_sum([], _, MaxTotal, End) :-
+                             End is MaxTotal.
 
-max_sum([],0).
+max_sum([Head | Tail], MaxLocal, MaxTotal, End) :-
+                            NewMaxLocal is max(0, MaxLocal + Head),
+                            NewMaxTotal is max(MaxTotal, NewMaxLocal),
+                            max_sum(Tail, NewMaxLocal, NewMaxTotal, End).

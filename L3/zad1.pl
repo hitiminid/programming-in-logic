@@ -9,8 +9,6 @@ srednia([Head | Tail], Srednia, IloscElementow, Wynik) :-
 srednia([], Srednia, IloscElementow, Wynik) :- Srednia is Wynik / IloscElementow.
 
 
-
-
 wariancja(Lista, Wynik) :-
 													srednia(Lista, Srednia),
 													wariancja(Lista, 0, 0, Srednia, Wynik).
